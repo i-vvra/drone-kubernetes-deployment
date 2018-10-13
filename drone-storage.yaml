@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    pv.kubernetes.io/bind-completed: "yes"
+    pv.kubernetes.io/bound-by-controller: "yes"
+    volume.beta.kubernetes.io/storage-provisioner: kubernetes.io/gce-pd
+  creationTimestamp: 2018-10-06T21:23:34Z
+  name: mydrone-drone
+  namespace: drone
+  resourceVersion: "39653"
+  selfLink: /api/v1/namespaces/drone/persistentvolumeclaims/mydrone-drone
+  uid: 14d12653-c9ae-11e8-aced-42010a80021f
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: standard
+  volumeName: pvc-14d12653-c9ae-11e8-aced-42010a80021f
+status:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  phase: Bound
+

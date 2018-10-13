@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: 2018-10-06T21:23:34Z
+  labels:
+    app: drone
+    chart: drone-1.7.0
+    heritage: Tiller
+    release: mydrone
+  name: mydrone-drone
+  namespace: drone
+  resourceVersion: "39717"
+  selfLink: /api/v1/namespaces/drone/services/mydrone-drone
+  uid: 14d8840e-c9ae-11e8-aced-42010a80021f
+spec:
+  clusterIP: 10.31.251.129
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: http
+    nodePort: 32015
+    port: 80
+    protocol: TCP
+    targetPort: 8000
+  - name: grpc
+    nodePort: 31146
+    port: 9000
+    protocol: TCP
+    targetPort: 9000
+  selector:
+    app: drone
+    component: server
+    release: mydrone
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 35.188.29.217
+
